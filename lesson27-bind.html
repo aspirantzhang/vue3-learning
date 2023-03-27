@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <div>
+            <button @click="switchImage">切换图片</button>
+        </div>
+        <img v-bind:src="imgUrl1" width="200" alt="">
+
+        <a v-bind:href="baidu">百度一下</a>
+        <br>
+        <a :href="baidu">百度一下，简略写法</a>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data: function () {
+                return {
+                    imgUrl1: 'https://rmfile.hnby.com.cn/rmstroage/image/20230324/4ec08c5906fd4331a81c1af95cf08585.jpg?imageMogr2/auto-orient/strip/interlace/1/thumbnail/600%3E/format/jpg',
+                    imgUrl2: 'https://rmfile.hnby.com.cn/rmstroage/image/20230324/20c764de6971417dbe90f07cd5960436.png?imageMogr2/auto-orient/strip/interlace/1/thumbnail/600%3E/format/jpg',
+                    baidu: 'http://www.baidu.com',
+                }
+            },
+            methods: {
+                switchImage() {
+                    this.imgUrl1 = this.imgUrl2;
+                }
+            },
+        });
+
+        app.mount("#app");
+    </script>
+</body>
+
+</html>

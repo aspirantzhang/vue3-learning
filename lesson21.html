@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前计数：{{counter}}</h2>
+        <h2>当前计数：{{counter*2}}</h2>
+        <h2>当前计数：{{info.split(' ')}}</h2>
+        <button @click="increase">+</button>
+        <button @click="decrease">-</button>
+
+
+        <h2>{{age}}：{{ age >= 20 ? '大于等于20' : '小于20'}}</h2>
+        <h2>{{formatDate()}}</h2>
+    </div>
+
+    <script setup src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script setup>
+
+        const app = Vue.createApp({
+            data: function () {
+                return {
+                    counter: 0,
+                    info: "my name is",
+                    age: 20,
+                }
+            },
+            methods: {
+                increase: function () {
+                    console.log('here');
+                    this.counter++;
+                },
+                decrease: function () {
+                    this.counter--;
+                },
+                formatDate: function () {
+                    return '2022-10-10'
+                }
+            },
+        });
+
+        app.mount("#app");
+
+    </script>
+</body>
+
+</html>
